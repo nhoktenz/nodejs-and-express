@@ -3,6 +3,12 @@ import chalk from  'chalk';
 import Debug from 'debug';
 import morgan from 'morgan';
 import path from 'path';
+import sessions from './src/data/sessions.json' assert {type: 'json'};
+// const { default: sessions } = await import('./src/data/sessions.json', {
+//     assert: {
+//       type: 'json'
+//     }
+//   });
 
 const PORT = process.env.PORT || 5000;
 const debug = Debug('app');
@@ -19,12 +25,9 @@ app.set('view engine','ejs');
 
 sessionRouter.route('/')
 .get((req,res) => {
-    res.render('sessions',{sessions:[
-        {title: 'Session 1', description: 'this is session 1'},
-        {title: 'Session 2', description: 'this is session 2'},
-        {title: 'Session 3', description: 'this is session 3'},
-        {title: 'Session 4', description: 'this is session 4'}
-    ]});
+    res.render('sessions',{
+        sessions,
+    });
 });
 sessionRouter.route('/1')
 .get((req,res)=>{

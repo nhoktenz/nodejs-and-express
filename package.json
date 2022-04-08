@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "DEBUG=app nodemon app.js",
-    "debug": "DEBUG=* nodemon app.js",
+    "start": "DEBUG=app nodemon --experimental-json-modules app.js",
+    "debug": "DEBUG=* nodemon --experimental-json-modules app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
