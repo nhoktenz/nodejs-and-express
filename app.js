@@ -29,9 +29,10 @@ sessionRouter.route('/')
         sessions,
     });
 });
-sessionRouter.route('/1')
+sessionRouter.route('/:id')
 .get((req,res)=>{
-    res.send('hello single session')
+    const id = req.params.id;
+    res.send('hello single session' + id);
 });
 
 app.use('/sessions',sessionRouter);
