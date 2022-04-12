@@ -3,7 +3,8 @@ import chalk from  'chalk';
 import Debug from 'debug';
 import morgan from 'morgan';
 import path from 'path';
-import sessions from './src/data/sessions.json' assert {type: 'json'};
+import sessionRouter from './src/routers/sessionsRouter.js';
+
 // const { default: sessions } = await import('./src/data/sessions.json', {
 //     assert: {
 //       type: 'json'
@@ -13,7 +14,7 @@ import sessions from './src/data/sessions.json' assert {type: 'json'};
 const PORT = process.env.PORT || 5000;
 const debug = Debug('app');
 const app = express();
-const sessionRouter = express.Router();
+//const sessionRouter = require('./src/routers/sessionRouter');
 
 
 app.use(morgan('tiny'));
@@ -23,20 +24,6 @@ app.set('views','./src/views');
 app.set('view engine','ejs');
 
 
-sessionRouter.route('/')
-.get((req,res) => {
-    res.render('sessions',{
-        sessions,
-    });
-});
-sessionRouter.route('/:id')
-.get((req,res)=>{
-    const id = req.params.id;
-    res.render('session', 
-    {
-        session: sessions[id]
-    });
-});
 
 app.use('/sessions',sessionRouter);
 
