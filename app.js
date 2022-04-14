@@ -24,7 +24,7 @@ app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
 app.use("/sessions", sessionRouter);
-app.use("admin", adminRouter);
+app.use("/admin", adminRouter);
 
 app.get("/", (req, res) => {
   res.render("index", { title: "Globomantics", data: ["a", "b", "c"] });

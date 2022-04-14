@@ -4,12 +4,12 @@ import { MongoClient } from "mongodb";
 import sessions from "../data/sessions.json" assert { type: "json" };
 
 const adminRouter = express.Router();
-const debug = Debug("app")("app:adminRouter");
+const debug = Debug("app");
 
 adminRouter.route("/").get((req, res) => {
   const url =
-    "mongodb+srv://nhoktenz:Hell0tenZ22@globomantics.0aqb1.mongodb.net?retryWrites=true&w=majority";
-  const dbName = "louglobomantics";
+    "mongodb+srv://tenz:x1ozJ86cGubTqbm6@globomatics.0aqb1.mongodb.net/globomantics?retryWrites=true&w=majority";
+  const dbName = "globomantics";
   (async function mongo() {
     let client;
     try {
